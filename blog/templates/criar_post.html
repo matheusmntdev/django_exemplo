@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Post</title>
+    <link rel="stylesheet" href="{% static 'blog/css/criar_post.css' %}">
+</head>
+<body>
+    <h1>Criar Novo Post</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{% url 'blog:lista_posts' %}">Voltar para a lista</a>
+</body>
+</html>

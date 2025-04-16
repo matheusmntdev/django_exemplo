@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Post</title>
+    <link rel="stylesheet" href="{% static 'blog/css/criar_post.css' %}">
+</head>
+<body>
+    <h1>Criar Novo Post</h1>
+    <form action="{% url 'blog:criar_post' %}" method="post">
+        {% csrf_token %}
+        
+        <input type="text" name="titulo" placeholder="Título">
+        <textarea name="conteudo" placeholder="Conteúdo"></textarea>
+        <input type="text" name="autor" placeholder="Autor">
+        <input type="checkbox" name="data_publicacao" placeholder="Data de publicação">
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{% url 'blog:lista_posts' %}">Voltar para a lista</a>
+</body>
+</html>
